@@ -1,3 +1,35 @@
 .list-group-item {
   line-height: 2.5;
 }
+
+#example-day {
+  width: 200px;
+  margin-top: 8px;
+}
+ .btn-outline-dark {
+   width: 150px;
+   height: 45px;
+   margin-top: 20px;
+ }
+
+ h1, h2, h3, h4, h5,
+ .h1, .h2, .h3, .h4, .h5 {
+   line-height: 1.45;
+   color: rgb(29, 28, 28);
+   font-family: "Playfair Display", serif;
+   font-weight: bold; }
+
+.container {
+  margin-left: 5%;
+  margin-right: 5%;
+  margin-top: 5%;
+}
+
+.reserve {
+  color: #F96D00;
+}
+
+.btn-warning {
+  color: white;
+  background-color: #F96D00;
+}
