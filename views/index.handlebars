@@ -2,25 +2,44 @@
   <div class="container">
     <div class="row">
       <div class="col-8 offset-2">
-        <h1>{{msg}}</h1>
-        <h2>This is our Home Page!</h2>
+        <h1>Reserve a Table</h1>
         <form class="clearfix mb-4" action="POST">
-          <div class="form-group">
-            <label for="example-text">Example Text</label>
-            <input type="text" id="example-text" class="form-control" aria-describedby="example-text" placeholder="Enter Example Text">
+          <div class="form-row">
+            <div class= "col-md-6 mb-3">
+             <label for="example-name">Name</label>
+            <input type="text" id="example-name" class="form-control" aria-describedby="example-name" placeholder="Enter Name">
+            </div>
+           
+           <div class="col-md-6 mb-3">
+            <label for="example-number">Phone Number</label>
+            <input type="text" class="form-control" id="example-number" aria-describedby="example-number" placeholder="Enter Phone Number">
           </div>
-          <div class="form-group">
-            <label for="example-description">Example Description</label>
-            <textarea class="form-control" id="example-description" aria-describedby="example-description" placeholder="Enter Example Description"></textarea>
           </div>
-          <button id="submit" class="btn btn-primary float-right">Submit</button>
+
+         <div class="form-row">
+            <form class="form-inline marginFix">
+
+            <div class="col-md-6 mb-3">Date&nbsp;<input class="form-control" id="example-day" type="date" /></div>
+
+           </form>
+
+            <div class="col-md-6 mb-3">
+            <label for="example-time">What time do you want to check in?</label>
+            <input type="text" class="form-control" id="example-time" aria-describedby="example-time" placeholder=" 8:00 pm">
+          </div>
+
+         </div>
+          
+          
+          <button id="submit" class="btn btn-outline-dark float-right">Submit</button>
         </form>
-        <h3>Examples:</h3>
-        <ul id="example-list" class="list-group">
-          {{#each examples}}
-          <li data-id="{{this.id}}" class="list-group-item">
-            <a href="example/{{this.id}}">{{this.text}}</a>
-            <button class="btn btn-danger float-right delete">ｘ</button>
+        <br><br>
+        <h3>Current reservations:</h3>
+        <ul id="reservation-list" class="list-group">
+          {{#each reservations}}
+          <li data-id="{{this.name}}" class="list-group-item">
+            <a href="reservations/{{this.id}}">{{this.id}}.{{this.name}}</a>
+            <button class="btn btn-warning float-right delete">ｘ</button>
           </li>
           {{/each}}
         </ul>
@@ -29,5 +48,5 @@
   </div>
 </div>
 
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
 <script src="/js/index.js"></script>

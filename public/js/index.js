@@ -1,47 +1,49 @@
 // Get references to page elements
-var $exampleText = $("#example-text");
-var $exampleDescription = $("#example-description");
+var $reservationName = $("#example-name");
+var $reservationNumber = $("#example-number");
+var $reservationDay = $("#example-day");
+var $reservationTime = $("#example-time");
 var $submitBtn = $("#submit");
-var $exampleList = $("#example-list");
+var $reservationList = $("#reservation-list");
 
 // The API object contains methods for each kind of request we'll make
 var API = {
-  saveExample: function(example) {
+  saveReservation: function(reservation) {
     return $.ajax({
       headers: {
         "Content-Type": "application/json"
       },
       type: "POST",
-      url: "api/examples",
-      data: JSON.stringify(example)
+      url: "api/reservations",
+      data: JSON.stringify(reservation)
     });
   },
-  getExamples: function() {
+  getReservations: function() {
     return $.ajax({
-      url: "api/examples",
+      url: "api/reservations",
       type: "GET"
     });
   },
-  deleteExample: function(id) {
+  deleteReservation: function(id) {
     return $.ajax({
-      url: "api/examples/" + id,
+      url: "api/reservations/" + id,
       type: "DELETE"
     });
   }
 };
 
-// refreshExamples gets new examples from the db and repopulates the list
-var refreshExamples = function() {
-  API.getExamples().then(function(data) {
-    var $examples = data.map(function(example) {
+// refreshReservations gets new reservations from the db and repopulates the list
+var refreshReservations = function() {
+  API.getReservations().then(function(data) {
+    var $reservations = data.map(function(reservation) {
       var $a = $("<a>")
-        .text(example.text)
-        .attr("href", "/example/" + example.id);
+        .text(reservation.name)
+        .attr("href", "/reservations/" + reservation.id);
 
       var $li = $("<li>")
         .attr({
           class: "list-group-item",
-          "data-id": example.id
+          "data-id": reservation.id
         })
         .append($a);
 
@@ -54,8 +56,8 @@ var refreshExamples = function() {
       return $li;
     });
 
-    $exampleList.empty();
-    $exampleList.append($examples);
+    $reservationList.empty();
+    $reservationList.append($reservations);
   });
 };
 
@@ -64,22 +66,28 @@ var refreshExamples = function() {
 var handleFormSubmit = function(event) {
   event.preventDefault();
 
-  var example = {
-    text: $exampleText.val().trim(),
-    description: $exampleDescription.val().trim()
+  var reservation = {
+    name: $reservationName.val().trim(),
+    number: $reservationNumber.val().trim(),
+    day: $reservationDay.val().trim(),
+    time: $reservationTime.val().trim()
   };
 
-  if (!(example.text && example.description)) {
-    alert("You must enter an example text and description!");
+  console.log(reservation.day, reservation.number);
+
+  if (!reservation.name || !reservation.number) {
+    alert("You must enter a name and phone number!");
     return;
   }
 
-  API.saveExample(example).then(function() {
-    refreshExamples();
+  API.saveReservation(reservation).then(function() {
+    refreshReservations();
   });
 
-  $exampleText.val("");
-  $exampleDescription.val("");
+  $reservationName.val("");
+  $reservationNumber.val("");
+  $reservationDay.val("");
+  $reservationTime.val("");
 };
 
 // handleDeleteBtnClick is called when an example's delete button is clicked
@@ -89,11 +97,11 @@ var handleDeleteBtnClick = function() {
     .parent()
     .attr("data-id");
 
-  API.deleteExample(idToDelete).then(function() {
-    refreshExamples();
+  API.deleteReservation(idToDelete).then(function() {
+    refreshReservations();
   });
 };
 
 // Add event listeners to the submit and delete buttons
 $submitBtn.on("click", handleFormSubmit);
-$exampleList.on("click", ".delete", handleDeleteBtnClick);
+$reservationList.on("click", ".delete", handleDeleteBtnClick);
