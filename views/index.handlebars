@@ -1,52 +1,82 @@
-<div id="home">
-  <div class="container">
-    <div class="row">
-      <div class="col-8 offset-2">
-        <h1>Reserve a Table</h1>
-        <form class="clearfix mb-4" action="POST">
-          <div class="form-row">
-            <div class= "col-md-6 mb-3">
-             <label for="example-name">Name</label>
-            <input type="text" id="example-name" class="form-control" aria-describedby="example-name" placeholder="Enter Name">
-            </div>
-           
-           <div class="col-md-6 mb-3">
-            <label for="example-number">Phone Number</label>
-            <input type="text" class="form-control" id="example-number" aria-describedby="example-number" placeholder="Enter Phone Number">
+
+    <section class="ftco-cover" style="background-image: url(images/bg_3.jpg);" id="section-home">
+      <div class="container">
+        <div class="row align-items-center justify-content-center text-center ftco-vh-100">
+          <div class="col-md-12">
+            <h1 class="ftco-heading ftco-animate mb-3">NoWait!</h1>
+            <h2 class="h5 ftco-subheading mb-5 ftco-animate">The best way to order!! <a href="" target="_blank"></a></h2>    
+            <p><a href="/reserve" target="_blank" class="btn btn-outline-white btn-lg ftco-animate" id="reservation" data-toggle="modal" data-target="#reservationModal">Reservation</a></p>
+            
+             <p><a href="/menu" target="_blank" class="btn btn-outline-white btn-lg ftco-animate" id="menu" data-toggle="modal" data-target="#reservationModal">Menu</a></p>
+            
           </div>
-          </div>
-
-         <div class="form-row">
-            <form class="form-inline marginFix">
-
-            <div class="col-md-6 mb-3">Date&nbsp;<input class="form-control" id="example-day" type="date" /></div>
-
-           </form>
-
-            <div class="col-md-6 mb-3">
-            <label for="example-time">What time do you want to check in?</label>
-            <input type="text" class="form-control" id="example-time" aria-describedby="example-time" placeholder=" 8:00 pm">
-          </div>
-
-         </div>
-          
-          
-          <button id="submit" class="btn btn-outline-dark float-right">Submit</button>
-        </form>
-        <br><br>
-        <h3>Current reservations:</h3>
-        <ul id="reservation-list" class="list-group">
-          {{#each reservations}}
-          <li data-id="{{this.name}}" class="list-group-item">
-            <a href="reservations/{{this.id}}">{{this.id}}.{{this.name}}</a>
-            <button class="btn btn-warning float-right delete">ｘ</button>
-          </li>
-          {{/each}}
-        </ul>
+        </div>
       </div>
-    </div>
-  </div>
-</div>
+    </section>
+    <!-- END section -->
 
+    <section class="ftco-section bg-light" id="section-contact">
+      <div class="container">
+        <div class="row">
+
+          <div class="col-md-12 text-center mb-5 ftco-animate">
+            <h2 class="display-4">Contact Us</h2>
+            <div class="row justify-content-center">
+              <div class="col-md-7">
+                <p class="lead">Please leave your feedback for 10% off next time in our restaurant.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md mb-5 ftco-animate">
+            <form action="https://formspree.io/kellysp11@gmail.com" method="post">
+              <div class="form-group">
+                <label for="name" class="sr-only">Name</label>
+                <input type="text" class="form-control" id="name" placeholder="Enter your name">
+              </div>
+              <div class="form-group">
+                <label for="email" class="sr-only">Email</label>
+                <input type="email" class="form-control" id="email" placeholder="Enter your email">
+              </div>
+              <div class="form-group">
+                <label for="message" class="sr-only">Message</label>
+                <textarea name="message" id="message" cols="30" rows="10" class="form-control" placeholder="Write your message"></textarea>
+              </div>
+              <div class="form-group">
+                <input type="submit" class="btn btn-primary btn-lg" value="Send Message" id="add-btn">
+              </div>
+            </form>
+          </div>
+          
+        </div>
+      </div>
+    </section>
+   
+    
+
+    
+    <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
+
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.easing.1.3.js"></script>
+    <script src="js/jquery.waypoints.min.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/jquery.magnific-popup.min.js"></script>
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
-<script src="/js/index.js"></script>
+
+    <script src="js/bootstrap-datepicker.js"></script>
+    <script src="js/jquery.timepicker.min.js"></script>
+    
+    <script src="js/jquery.animateNumber.min.js"></script>
+    
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+    <script src="js/google-map.js"></script>
+
+    <script src="js/index.js"></script>
+
+
+

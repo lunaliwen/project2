@@ -20,6 +20,21 @@ module.exports = function(app) {
     });
   });
 
+  app.get("/reserve", function(req, res) {
+    db.Reservation.findAll({}).then(function(dbReservations) {
+      res.render("reserve", {
+        reservations: dbReservations
+      });
+    });
+  });
+
+ // app.get("/checkin", function(req, res) {
+   // db.Reservation.findAll({}).then(function(dbReservations) {
+     // res.render("checkin", {
+      //  reservations: dbReservations
+      //});
+    //});
+  //});
   // Render 404 page for any unmatched routes
   app.get("*", function(req, res) {
     res.render("404");
