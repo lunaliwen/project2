@@ -10,15 +10,27 @@ module.exports = function (app) {
       });
   });
 
+  app.get("/api/orders/:ResvId", function (req, res) {
+    db.Order.findAll({
+      where: {
+        ReservationId: req.params.ResvId
+      }
+    })
+      .then(function (dbOrder) {
+        res.json(dbOrder);
+      });
+  });
+
   // POST route for saving a new order. You can create a order using the data on req.body
   app.post("/api/orders", function (req, res) {
     console.log(req.body);
     db.Order.create({
       item: req.body.name,
       price: req.body.price,
-      quantity: req.body.quantity
+      quantity: req.body.quantity,
+      ReservationId: req.body.ReservationId
     })
-      .then(function(dbOrder) {
+      .then(function (dbOrder) {
         res.json(dbOrder);
       });
   });
@@ -30,7 +42,7 @@ module.exports = function (app) {
         id: req.params.id
       }
     })
-      .then(function(dbOrder) {
+      .then(function (dbOrder) {
         res.json(dbOrder);
       });
   });

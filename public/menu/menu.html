@@ -346,6 +346,16 @@
   <script type='text/javascript' src="js/bootstrap.min.js"></script>
   <script type='text/javascript' src="js/jquery.mycart.js"></script>
   <script type="text/javascript">
+
+    var resvNum = Number(prompt("Please Enter Your Reservation Number"));
+
+    if (resvNum === 0 || isNaN(resvNum)){
+      alert("Please enter your reservation number");
+      location.reload();
+    };
+
+    console.log(resvNum);
+
     $(function () {
 
       var goToCartIcon = function ($addTocartBtn) {
@@ -390,18 +400,21 @@
             var newOrder = {
               name: this.name,
               price: this.price,
-              quantity: this.quantity
+              quantity: this.quantity,
+              ReservationId: resvNum
             }
 
+            console.log(newOrder);
+
             submitOrder(newOrder);
-            
+
           });
           alert(checkoutString)
           console.log("checking out", products, totalPrice, totalQuantity);
 
           function submitOrder(Order) {
             $.post("/api/orders/", Order, function () {
-              window.location.href = "/menu";
+              window.location.href = "/kitchen";
             });
           }
         },
