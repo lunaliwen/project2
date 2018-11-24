@@ -47,4 +47,18 @@ module.exports = function (app) {
       });
   });
 
+  // Update route to change when an order is completed
+  app.put("/api/orders/", function (req, res) {
+    // Update takes in an object describing the properties we want to update, and
+    // we use where to describe which objects we want to update
+    db.Reservation.update({
+      complete: req.body.complete
+    }, {
+        where: {
+          id: req.body.id
+        }
+      }).then(function (dbReservation) {
+        res.json(dbReservation);
+      });
+  });
 };

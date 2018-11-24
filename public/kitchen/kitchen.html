@@ -38,27 +38,55 @@
 					</table>
 
 					<table class="table table-striped">
-							<h3 class='text-center'>
-								Completed Reservation
-							</h3>
-							<thead>
-								<tr>
-									<th class='text-center'>Name</th>
-									<th class='text-center'>Reservation Number</th>
-									<th class='text-center'># of Orders</th>
-									<th class='text-center'>List of Orders</th>
-									<th class='text-center'>Delete Orders</th>
-									<th class='text-center'>Completed</th>
-								</tr>
-							</thead>
-							<tbody class="completed">
-	
-							</tbody>
-						</table>
+						<h3 class='text-center'>
+							Completed Reservation
+						</h3>
+						<thead>
+							<tr>
+								<th class='text-center'>Name</th>
+								<th class='text-center'>Reservation Number</th>
+								<th class='text-center'># of Orders</th>
+								<th class='text-center'>List of Orders</th>
+								<th class='text-center'>Delete Orders</th>
+								<th class='text-center'>Completed</th>
+							</tr>
+						</thead>
+						<tbody class="completed">
+
+						</tbody>
+					</table>
 				</div>
 			</div>
 		</div>
 	</div>
+
+	<!-- Modal -->
+	<div class="modal fade" id="orderModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title text-center" id="exampleModalLabel">List of Orders</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<table class="table table-striped">
+						<thead>
+							<tr>
+								<th class='text-center'>Reservation Number</th>
+								<th class='text-center'>Item</th>
+								<th class='text-center'>Quantity</th>
+							</tr>
+						</thead>
+						<tbody class="orderList">
+
+						</tbody>
+				</div>
+			</div>
+		</div>
+	</div>
+
 	<!-- Custom Script -->
 	<script src="js/kitchen.js" type="text/javascript"></script>
 
