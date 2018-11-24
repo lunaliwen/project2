@@ -2,7 +2,11 @@ module.exports = function (sequelize, DataTypes) {
   var Order = sequelize.define("Order", {
     item: DataTypes.STRING,
     price: DataTypes.DECIMAL(10, 2),
-    quantity: DataTypes.INTEGER
+    quantity: DataTypes.INTEGER,
+    complete: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: false
+    }
   });
 
   Order.associate = function (models) {
