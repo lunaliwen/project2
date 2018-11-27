@@ -349,7 +349,7 @@
 
     var resvNum = Number(prompt("Please Enter Your Reservation Number"));
 
-    if (resvNum === 0 || isNaN(resvNum)){
+    if (resvNum === 0 || isNaN(resvNum)) {
       alert("Please enter your reservation number");
       location.reload();
     };
@@ -394,9 +394,7 @@
         },
         checkoutCart: function (products, totalPrice, totalQuantity) {
           var checkoutString = "Total Price: " + totalPrice + "\nTotal Quantity: " + totalQuantity;
-          checkoutString += "\n\n id \t name \t summary \t price \t quantity \t image path";
           $.each(products, function () {
-            checkoutString += ("\n " + this.id + " \t " + this.name + " \t " + this.summary + " \t " + this.price + " \t " + this.quantity + " \t " + this.image);
             var newOrder = {
               name: this.name,
               price: this.price,
