@@ -1,52 +1,71 @@
-<div id="home">
-  <div class="container">
-    <div class="row">
-      <div class="col-8 offset-2">
-        <h1>Reserve a Table</h1>
-        <form class="clearfix mb-4" action="POST">
-          <div class="form-row">
-            <div class= "col-md-6 mb-3">
-             <label for="example-name">Name</label>
-            <input type="text" id="example-name" class="form-control" aria-describedby="example-name" placeholder="Enter Name">
-            </div>
-           
-           <div class="col-md-6 mb-3">
-            <label for="example-number">Phone Number</label>
-            <input type="text" class="form-control" id="example-number" aria-describedby="example-number" placeholder="Enter Phone Number">
-          </div>
-          </div>
-
-         <div class="form-row">
-            <form class="form-inline marginFix">
-
-            <div class="col-md-6 mb-3">Date&nbsp;<input class="form-control" id="example-day" type="date" /></div>
-
-           </form>
-
-            <div class="col-md-6 mb-3">
-            <label for="example-time">What time do you want to check in?</label>
-            <input type="text" class="form-control" id="example-time" aria-describedby="example-time" placeholder=" 8:00 pm">
-          </div>
-
-         </div>
-          
-          
-          <button id="submit" class="btn btn-outline-dark float-right">Submit</button>
-        </form>
-        <br><br>
-        <h3>Current reservations:</h3>
-        <ul id="reservation-list" class="list-group">
-          {{#each reservations}}
-          <li data-id="{{this.name}}" class="list-group-item">
-            <a href="reservations/{{this.id}}">{{this.id}}.{{this.name}}</a>
-            <button class="btn btn-warning float-right delete">ｘ</button>
-          </li>
-          {{/each}}
-        </ul>
-      </div>
+<div class="col-md-12 text-center mb-5 ftco-animate">
+  <h2 class="display">Reserve A Table</h2>
+  <div class="row justify-content-center">
+    <div class="col-md-12">
+      <p class="paragraph lead">Reserve a table below. Reservations must be made at least 2 hours in advance. For
+        parties of 10 or more, reservations must be made at least 2 days in advance. For any questions or special
+        requests, please give us a call.</p>
     </div>
   </div>
 </div>
 
-<script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
-<script src="/js/index.js"></script>
+<body class="container">
+  <h3>
+    <div style="float: right; cursor: pointer;">
+      <span class="glyphicon glyphicon-shopping-cart my-cart-icon"><span class="badge badge-notify my-cart-badge"></span></span>
+    </div>
+  </h3>
+
+  <div id="home">
+    <div class="container">
+      <div class="row">
+        <div class="col-8 offset-2">
+          <form class="clearfix mb-4" action="POST">
+            <div class="form-row">
+              <div class="col-md-6 mb-3">
+                <label for="example-name">Name</label>
+                <input type="text" id="example-name" class="form-control" aria-describedby="example-name" placeholder="Enter Name">
+              </div>
+
+              <div class="col-md-6 mb-3">
+                <label for="example-number">Phone Number</label>
+                <input type="text" class="form-control" id="example-number" aria-describedby="example-number"
+                  placeholder="Enter Phone Number">
+              </div>
+            </div>
+
+            <div class="form-row">
+              <form class="form-inline marginFix">
+
+                <div class="col-md-6 mb-3">Date&nbsp;<input class="form-control" id="example-day" type="date" /></div>
+
+              </form>
+
+              <div class="col-md-6 mb-3">
+                <label for="example-time">What time do you want to check in?</label>
+                <input type="text" class="form-control" id="example-time" aria-describedby="example-time" placeholder=" 8:00 pm">
+              </div>
+
+            </div>
+
+
+            <button id="submit" class="btn btn-danger">Submit</button>
+          </form>
+          <br><br>
+          <h3>Current reservations:</h3>
+          <ul id="reservation-list" class="list-group">
+            {{#each reservations}}
+            <li data-id="{{this.name}}" class="list-group-item">
+              <a href="reservations/{{this.id}}">{{this.id}}.{{this.name}}</a>
+              <button class="btn btn-warning float-right delete">ｘ</button>
+            </li>
+            {{/each}}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+  <script src="/js/index.js"></script>
+</body>
